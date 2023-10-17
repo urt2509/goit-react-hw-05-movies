@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Link, NavLink, Route, Routes } from 'react-router-dom';
 import { routes } from 'routes';
 import { Header, Layout } from 'components';
 
@@ -15,15 +15,15 @@ const handleSubmit = () => {
 export const App = () => {
   return (
     <div>
+      <Reviews />
+      <Header />
       <Routes>
-        <Route path={routes.HOME} element={<Header />}>
-          <Route index element={<Home />} />
-          <Route path={routes.MOVIES} element={<Movies />} />
-          <Route path={routes.MOVIEDETAILS} element={<MovieDetails />}>
-            <Route path={routes.CAST} element={<Cast />} />
-            <Route path={routes.REVIEWS} element={<Reviews />} />
-          </Route>
-        </Route>
+        <Route path={routes.HOME} element={<Home />} />
+        <Route path={routes.MOVIES} element={<Movies />} />
+        {/* <Route path={routes.MOVIEDETAILS} element={<MovieDetails />}>
+          <Route path={routes.CAST} element={<Cast />} />
+          <Route path={routes.REVIEWS} element={<Reviews />} />
+        </Route> */}
       </Routes>
     </div>
   );

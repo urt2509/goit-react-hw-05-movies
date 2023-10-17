@@ -1,26 +1,36 @@
 import axios from 'axios';
 
-const API_KEY = '38313648-79b021f85a9dd42156ef97952';
+const API_KEY = 'd60ee6f07d6e8c98fb010d96d99d1e06';
 
-axios.defaults.baseURL = 'https://pixabay.com/api/';
+const BASE_URL = 'https://api.themoviedb.org/3';
 
 const defaultParams = {
-  key: API_KEY,
-  imageType: 'photo',
-  per_page: 12,
-  orientation: 'horizontal',
+  api_key: API_KEY,
+  language: 'en-US',
 };
 
-async function getImages({ query, page }) {
-  const params = {
+//get trending movies for Home page
+export const getTrendingMovies = async () => {
+  const options = new URLSearchParams({
     ...defaultParams,
-    q: query,
-    page: page,
-  };
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer d60ee6f07d6e8c98fb010d96d99d1e06',
+    },
+  });
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/trending/movie/day?${options}`
+    );
 
-  const response = await axios.get('', { params });
+    // console.log(response.data);
+    return response.data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-  return response.data;
-}
-
-export { getImages };
+export const getMovieId = async () => {
+  const { data } = await axios.get(`$`);
+  return data;
+};

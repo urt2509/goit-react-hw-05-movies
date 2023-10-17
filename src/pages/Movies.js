@@ -1,3 +1,10 @@
+import { SearchBar } from 'components';
+
 export const Movies = () => {
-  return <div>Movies</div>;
+  return (
+    <>
+      <div>Hello Movies</div>
+      <SearchBar />
+    </>
+  );
 };
