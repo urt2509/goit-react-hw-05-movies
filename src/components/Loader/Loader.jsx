@@ -1,3 +1,13 @@
+import { Wrapper, MainCircle, GreenCircle, BrownCircle } from './Loader.styled';
+
 export const Loader = () => {
-  return <div>Here will be Loader element</div>;
+  return (
+    <Wrapper>
+      <MainCircle>
+        <GreenCircle>
+          <BrownCircle></BrownCircle>
+        </GreenCircle>
+      </MainCircle>
+    </Wrapper>
+  );
 };

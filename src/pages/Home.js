@@ -9,7 +9,7 @@ export const Home = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const getMovieList = async page => {
+    const getMovieList = async () => {
       setLoading(true);
       try {
         const trendingMovies = await getTrendingMovies();
@@ -20,12 +20,13 @@ export const Home = () => {
         setLoading(false);
       }
     };
-    getMovieList(2);
+    getMovieList();
   }, []);
 
   return (
     <>
       {loading && <Loader />}
+
       <MoviesList movies={trendingList} />
       <div>🍓💕🍓</div>
     </>

@@ -13,6 +13,7 @@ const defaultParams = {
 export const getTrendingMovies = async () => {
   const options = new URLSearchParams({
     ...defaultParams,
+
     headers: {
       accept: 'application/json',
       Authorization: 'Bearer d60ee6f07d6e8c98fb010d96d99d1e06',
@@ -30,7 +31,32 @@ export const getTrendingMovies = async () => {
   }
 };
 
+//search movie by title
+export const searchByTitle = async name => {
+  const options = new URLSearchParams({
+    ...defaultParams,
+    query: name,
+    page: 1,
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer d60ee6f07d6e8c98fb010d96d99d1e06',
+    },
+  });
+  try {
+    const response = await axios.get(`${BASE_URL}/search/movie?${options}`);
+
+    const res = response.data.results;
+
+    console.dir(res);
+    return response.data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getMovieId = async () => {
   const { data } = await axios.get(`$`);
   return data;
 };
+
+//`${BASE_URL}/search/movie?query=${name}?${options}`
