@@ -26,9 +26,8 @@ export const Home = () => {
   return (
     <>
       {loading && <Loader />}
-
+      <h2>Trending today</h2>
       <MoviesList movies={trendingList} />
-      <div>🍓💕🍓</div>
     </>
   );
 };

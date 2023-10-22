@@ -32,10 +32,10 @@ export const getTrendingMovies = async () => {
 };
 
 //search movie by title
-export const searchByTitle = async name => {
+export const searchByTitle = async query => {
   const options = new URLSearchParams({
     ...defaultParams,
-    query: name,
+    query,
     page: 1,
     headers: {
       accept: 'application/json',

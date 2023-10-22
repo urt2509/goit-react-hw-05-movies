@@ -1,6 +1,5 @@
-import { NavLink } from 'react-router-dom';
-
 import { routes } from 'routes';
+import { Link } from './Header.styled.js';
 
 export const Header = () => {
   return (
@@ -8,14 +7,9 @@ export const Header = () => {
       <header>
         <div>
           <nav>
-            <ul>
-              <li>
-                <NavLink to={routes.HOME}>Home</NavLink>
-              </li>
-              <li>
-                <NavLink to={routes.MOVIES}>Movies</NavLink>
-              </li>
-            </ul>
+            <Link to={routes.HOME}>Home</Link>
+
+            <Link to={routes.MOVIES}>Movies</Link>
           </nav>
           <hr />
         </div>
